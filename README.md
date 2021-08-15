@@ -1,6 +1,6 @@
 # MotionBlurDisable
 
-A [NeosModLoader](https://github.com/zkxs/NeosModLoader)) mod for [Neos VR](https://neos.com/) that disables all motion blur. This makes the desktop experience *much* more usable.
+A [NeosModLoader](https://github.com/zkxs/NeosModLoader) mod for [Neos VR](https://neos.com/) that disables all motion blur. This makes the desktop experience *much* more usable.
 
 This will no longer be needed once https://github.com/Neos-Metaverse/NeosPublic/issues/322 is resolved.
 
