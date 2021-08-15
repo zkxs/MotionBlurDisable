@@ -28,6 +28,27 @@ namespace MotionBlurDisable
             MethodInfo replacementMethod = AccessTools.DeclaredMethod(typeof(MotionBlurDisable), nameof(SetPostProcessing));
             harmony.Patch(originalMethod, prefix: new HarmonyMethod(replacementMethod));
             Msg("Hook installed successfully");
+
+            // disable prexisting motion blurs
+            PostProcessLayer[] components = Resources.FindObjectsOfTypeAll<PostProcessLayer>();
+            int count = 0;
+            foreach (PostProcessLayer component in components)
+            {
+                try
+                {
+                    MotionBlur motionBlur = component.defaultProfile.GetSetting<MotionBlur>();
+                    if (motionBlur != null)
+                    {
+                        motionBlur.enabled.value = false;
+                        count += 1;
+                    }
+                }
+                catch(Exception e)
+                {
+                    Warn($"failed to disable a motion blur: {e}");
+                }
+            }
+            Msg($"disabled {count} prexisting motion blurs");
         }
 
         private static bool SetPostProcessing(Camera c, bool enabled, bool motionBlur, bool screenspaceReflections)
