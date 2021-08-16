@@ -12,3 +12,6 @@ This will no longer be needed once https://github.com/Neos-Metaverse/NeosPublic/
 ## FAQ
 ### What does this actually do?
 It force disables the Unity MotionBlur post processing effect for all cameras by replacing the camera setup method with a slightly modified version.
+
+### Is this against guidelines?
+Maybe. [Read more](https://github.com/zkxs/NeosModLoader/blob/master/doc/neos_guidelines.md).
